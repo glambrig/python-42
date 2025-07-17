@@ -1,21 +1,11 @@
 def ft_filter(func, iterable):
-    '''replaces real filter() function'''
+    '''
+    filter(function or None, iterable) --> filter object
 
-    # print(f"{type(iterable)}")
+    Return an iterator yielding those items of iterable for which
+    function(item) is true.
+    If function is None, return the items that are true.
+    '''
 
-    newContainer = None
-
-    match type(iterable):
-        case "list":
-            newContainer = list()
-        case "tuple":
-            newContainer = tuple()
-        case "set":
-            newContainer = set()
-        case "dict":
-            newContainer = dict()
-
-    for e in iterable:
-        if func(e):
-            newContainer.append(e)
+    newContainer = [e for e in iterable if func(e)]
     return newContainer
