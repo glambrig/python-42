@@ -13,5 +13,5 @@ try:
         print("I'm Odd.")
 except AssertionError as err:
     print(f"AssertionError: {err}")
-except:
-    _ = 123 #do nothing
+except Exception:
+    _ = 123  # do nothing

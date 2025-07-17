@@ -5,7 +5,8 @@ str = str(time.time())
 
 str = str.split('.')[0]
 
-print(f"Seconds since January 1st, 1970: {int(str):,} or {int(str):e} in scientific notation")
+print(f"Seconds since January 1st, 1970: {int(str):,} ")
+print(f"or {int(str):e} in scientific notation")
 
 str = datetime.datetime.now()
 

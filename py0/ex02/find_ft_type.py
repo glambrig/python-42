@@ -13,14 +13,3 @@ def all_thing_is_obj(object: any) -> int:
         case _:
             print("Type not found")
     return 42
-
-
-
-    # s = str(type(object))
-    # s = s.split('\'')[1]
-    # # print(str(type(object)))
-    # if str(type(object)) == "<class 'str'>":
-    #     print(f"{object} is in the kitchen : {type(object)}")
-    # else:
-    #     print(f"{s} : {type(object)}")
-    # return 42
