@@ -40,6 +40,7 @@ def main():
         print(encode(sys.argv[1], translation))
     except AssertionError:
         print("AssertionError: the arguments are bad")
+        return
 
 
 if __name__ == "__main__":

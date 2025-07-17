@@ -48,6 +48,7 @@ def display_sum():
 
     except AssertionError as err:
         print(f"AssertionError: {err}")
+        return
 
 
 def main():

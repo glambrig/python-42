@@ -15,8 +15,8 @@ def main():
         assert type(int(args[2])) is int, "the arguments are bad"
     except AssertionError as err:
         print(f"AssertionError: {err}")
+        return
 
-    global num
     num = int(args[2])
     result = ft_filter.ft_filter(lambda s: len(s) > num, args[1].split())
     print(f"{result}")
