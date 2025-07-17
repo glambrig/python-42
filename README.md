@@ -2,7 +2,7 @@ Since I forgot to bring a notebook, here's all the python stuff I've learned so 
 
 -------------------------------------------------
 
-Things that hold stuff (like C structs):
+### Things that hold stuff (like C structs):
     List:
         my_list = [1, 2, 3]
         Ordered, changeable, allows dup values
@@ -31,20 +31,20 @@ Things that hold stuff (like C structs):
         if {elem} in {container}:
             {...}
 
-Working with time/date:
+### Working with time/date:
     Two modules: 'time' and 'datetime'
         time.time() -> seconds since epoch
         datetime.datetime.now() -> current date and time
 
         datetime has a bunch of methods to format the returned object (see strftime())
 
-Python types:
+### Python types:
     list of types: https://www.w3schools.com/python/python_datatypes.asp
     str methods: https://www.w3schools.com/python/python_strings_methods.asp
     
     type(object) -> type of thing passed as param
 
-Null types:
+### Null types:
     Technically there are lots of ways to say that something is (or contains) nothing.
 
     'None' is the only instance of the class 'NoneType'. Functions that don't return anything implicitely return 'None'. It's also used as a "nothing found" return value,
@@ -52,11 +52,11 @@ Null types:
     
     There's also 'False', '0', '' (empty string), NaN (for floats).
 
-Handling command line arguments:
+### Handling command line arguments:
     Module: 'sys'
         sys.argv is a list (type == list) with arguments inside
 
-Assertions:
+### Assertions:
     Assertions are a tool to make sure that something is the case before running the next line of code. Triggering the assert statement will throw an exception of type AssertionError.
     Syntax: assert {condition}, {error message}
 
@@ -67,7 +67,7 @@ Assertions:
         ---> if 123 > 0: {...} -> Runs the block of code
         ---> assert 123 > 0, "..." -> Jumps to the next line, does NOT throw an exception, since 123 is greater than 0.
 
-Exception handling:
+### Exception handling:
     Pretty much like in C/C++, with a couple extra keywords: try, except, else, finally.
 
     You can have multiple except statements to catch different exception types:
@@ -100,20 +100,20 @@ Exception handling:
     finally:
         print("This always runs")
 
-Lambda functions:
+### Lambda functions:
     These are nameless functions. The result of the expression is returned as the result of the lambda function.
     Syntax: lambda {parameters} : {expression}
 
     Example:
         numberTimesFive = lambda num : num * 5
 
-List comprehension:
+### List comprehension:
     This is a shorter way of defining how a new list should be built from an old one. You could do this with a loop, but list comprehension makes it shorter and easier.
     Syntax: newlist = [{expression} for {item} in {iterable} if {condition} == True]
         (The condition is optional and can be omitted)
     The {expression} at the beginning of the list comprehension statement is the element that will be added to the new list if the condition is true.
 
-The 'yield' keyword:
+### The 'yield' keyword:
     Returns a list of multiple values, one for each 'yield' statement. Unlike 'return', execution continues after a 'yield' statement.
     Syntax: yield {value}
 
@@ -126,10 +126,10 @@ The 'yield' keyword:
         result = f()
         #result will be ["hello", "world", '!']
 
-===============================
-Miscellaneous useful functions:
+-------------------------------------------------
+## Miscellaneous useful functions:
 
-The filter() function:
+### The filter() function:
     Syntax: filter({function}, {iterable})
         'iterable' == list/tuple/set/dict
     Returns an object of the same type as the iterable, but with stuff filtered out by the function.
