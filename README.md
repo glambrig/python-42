@@ -42,7 +42,19 @@ Since I forgot to bring a notebook, here's all the python stuff I've learned so 
     list of types: https://www.w3schools.com/python/python_datatypes.asp
     str methods: https://www.w3schools.com/python/python_strings_methods.asp
     
-    type(object) -> type of thing passed as param
+    We can determine the type of an object by calling the type() function:
+        type({object}) -> type of thing passed as param
+
+    Python never checks what types are actually passed to functions. Type suggestion does not guarantee that the function will be called with parameters of those types.
+
+    Example:
+        def f(arg1: list[int | float], arg2: str):
+            {...}
+
+        # Could theoretically be called like this, with no errors
+        num = 123
+        my_dict = {"hello": 99, "asdf": 123}
+        f(num, my_dict)
 
 ### Null types:
     Technically there are lots of ways to say that something is (or contains) nothing.
@@ -111,7 +123,13 @@ Since I forgot to bring a notebook, here's all the python stuff I've learned so 
     This is a shorter way of defining how a new list should be built from an old one. You could do this with a loop, but list comprehension makes it shorter and easier.
     Syntax: newlist = [{expression} for {item} in {iterable} if {condition} == True]
         (The condition is optional and can be omitted)
-    The {expression} at the beginning of the list comprehension statement is the element that will be added to the new list if the condition is true.
+    
+    In short, "for each {item} in {iterable}, do {expression}". The {expression} at the beginning of the list comprehension statement is (or resolves to) the element that will be added to the new list if the condition is true.
+
+    Example:
+        lst = [1, 2, 3]
+        newList = [e * 2, for e in lst]
+        # newList will be [2, 4, 6]
 
 ### The 'yield' keyword:
     Returns a list of multiple values, one for each 'yield' statement. Unlike 'return', execution continues after a 'yield' statement.
@@ -126,12 +144,20 @@ Since I forgot to bring a notebook, here's all the python stuff I've learned so 
         result = f()
         #result will be ["hello", "world", '!']
 
+### Difference between '==' and 'is' operators
+    Both check for equality, but in different senses.
+
+    '==' checks if the values of two objects are equal.
+    'is' checks to see if the two operands point to the same location in memory.
+
+    Both return 'True'/'False'.
+
 -------------------------------------------------
 ## Miscellaneous useful functions:
 
 ### The filter() function:
     Syntax: filter({function}, {iterable})
-        'iterable' == list/tuple/set/dict
+        {iterable} == list/tuple/set/dict
     Returns an object of the same type as the iterable, but with stuff filtered out by the function.
 
     Example:
@@ -145,3 +171,53 @@ Since I forgot to bring a notebook, here's all the python stuff I've learned so 
         new_list = filter(f, list)
         
         #new_list would be ['a', "hello"]
+
+-------------------------------------------------
+## A word on `numpy`
+    'numpy' is a library that allows us to use arrays, in the C sense, where elements are stored contiguously in memory. (Built in array-like types don't do this).
+
+### Creating arrays
+    First import it:
+        import numpy
+    or to shorthand it:
+        import numpy as np
+
+    Make an array with the array() method:
+        my_arr = numpy.array([1, 2, 3])
+
+### Multidimensional arrays
+    Just like in C, we can make multidimensional arrays too:
+        # 0D
+        arr0 = numpy.array(42)
+        
+        # 1D
+        arr1 = numpy.array([1, 2, 3])
+        
+        # 2D
+        arr2 = numpy.array([1, 2, 3], [4, 5, 6])
+        # This will look like this in memory:
+        # [[1 2 3]
+        #  [4 5 6]]
+
+### Indexing and slicing
+    Arrays are indexed like in C. You can also give a negative index to start from the end.
+
+    We can also do slices like in Rust:
+    Syntax: {array}[{start}:{end}:{step}]
+
+    If start is omitted, 0 is assumed.
+    If end is omitted, len({array}) is assumed.
+    {step} is optional, 1 assumed if empty.
+
+    {start} is inclusive, {end} is exclusive.
+
+    Example:
+        orig = numpy.array([1, 2, 3, 4, 5, 6])
+        new = orig[:3]
+        # new will be [1, 2, 3]
+        new = orig[2:]
+        # new will be [3, 4, 5, 6]
+        new = orig[2::2]
+        # new will be [3, 5]
+
+    We can also slice from the end using a negative index.
