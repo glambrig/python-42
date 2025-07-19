@@ -66,7 +66,7 @@ Since I forgot to bring a notebook, here's all the python stuff I've learned so 
 
 ### Handling command line arguments:
     Module: 'sys'
-        sys.argv is a list (type == list) with arguments inside
+        sys.argv is a list (type(sys.argv) is list) with arguments inside
 
 ### Assertions:
     Assertions are a tool to make sure that something is the case before running the next line of code. Triggering the assert statement will throw an exception of type AssertionError.
