@@ -9,13 +9,21 @@ def slice_me(family: list, start: int, end: int) -> list:
         and end arguments.
     '''
 
+    arr = np.array(0)
     try:
-        # this?
         assert type(family) is list, "wrong types"
-        # or this?
-        assert type(family) is np.ndarray, "wrong types"
-
+        arr = np.array(family)
+        assert type(arr) is np.ndarray, "wrong types"
+        assert arr.ndim == 2, "wrong number of array dimensions"
         assert type(start) is int and type(end) is int, "wrong types"
     except AssertionError as err:
         print(f"AssertionError, {err}")
-
+        return
+    except Exception:
+        print("critical error")
+        return
+    
+    print(f"My shape is ({len(arr)}, {arr.ndim})")
+    newArr = arr[start:end]
+    print(f"My new shape is ({len(newArr)}, {newArr.ndim})")
+    return arr[start:end]
