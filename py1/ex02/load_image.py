@@ -1,7 +1,26 @@
-from PIL import images
+from PIL import Image
+import numpy as np
 
 
-def ft_load(path: str) -> list:
-    '''You need to write a function that loads an image, prints its format, and its pixels
+def ft_load(path: str) -> np.ndarray:
+    '''You need to write a function that loads an image,
+    prints its format, and its pixels
     content in RGB format.
     You have to handle, at least, JPG and JPEG format'''
+
+    try:
+        img = Image.open(path)
+        assert img is not None, "Image failed to load"
+        assert img.format == "JPEG" or img.format == "JPG", "Type unsupported"
+    except AssertionError as err:
+        print(f"AssertionError: {err}")
+        return
+    except Exception as err:
+        print(f"Exception occurred: {err}")
+        return
+
+    # print picture dimensions: (width height numberOfChannels)
+    print("The shape of the image is: ")
+    print(f"({img.width} {img.height} {len(img.getbands())})")
+
+    return np.array(list(img.getdata()))
