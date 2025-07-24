@@ -15,12 +15,13 @@ def printNewStats(img: Image) -> None:
     h = img.height
     b = len(img.getbands())
 
-    if flag == False:
+    if flag is False:
         print(f"The shape of the image is: ({w} {h} {b})")
         print(np.array(list(img.getdata())))
     else:
         print(f"The shape of the image is: ({w} {h} {b}) or ({w}, {h})")
         print(np.array(list(img.getdata())))
+
 
 def main():
     '''
@@ -39,7 +40,7 @@ def main():
     except Exception as err:
         print(f"Exception occurred: {err}")
         return
-    
+
     print(imgInfo)
 
     left = img.width / 4

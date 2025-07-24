@@ -22,7 +22,7 @@ def slice_me(family: list, start: int, end: int) -> list:
     except Exception:
         print("critical error")
         return
-    
+
     print(f"My shape is ({len(arr)}, {arr.ndim})")
     newArr = arr[start:end]
     print(f"My new shape is ({len(newArr)}, {newArr.ndim})")
