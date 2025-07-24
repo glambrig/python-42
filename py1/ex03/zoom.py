@@ -2,25 +2,16 @@ from load_image import ft_load
 from PIL import Image
 import numpy as np
 
-
+#it does have to be grayscale, so fix
 def printNewStats(img: Image) -> None:
-
-    flag = False
-
-    # if it needs to be grayscale (confusing subject), uncomment this
-    flag = True
     img = img.convert("L")
 
     w = img.width
     h = img.height
     b = len(img.getbands())
 
-    if flag is False:
-        print(f"The shape of the image is: ({w} {h} {b})")
-        print(np.array(list(img.getdata())))
-    else:
-        print(f"The shape of the image is: ({w} {h} {b}) or ({w}, {h})")
-        print(np.array(list(img.getdata())))
+    print(f"The shape of the image is: ({w} {h} {b}) or ({w}, {h})")
+    print(np.array(list(img.getdata())))
 
 
 def main():
