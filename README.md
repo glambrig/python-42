@@ -153,7 +153,7 @@ Since I forgot to bring a notebook, here's all the python stuff I've learned so 
     Both return 'True'/'False'.
 
 -------------------------------------------------
-## Miscellaneous useful functions:
+## Miscellaneous useful knowledge:
 
 ### The filter() function:
     Syntax: filter({function}, {iterable})
@@ -171,6 +171,14 @@ Since I forgot to bring a notebook, here's all the python stuff I've learned so 
         new_list = filter(f, list)
         
         #new_list would be ['a', "hello"]
+
+### The `os` module
+    Used to interact with OS stuff (read/write/open/close files, filesystem, environment variables, etc.).
+    Make sure to:
+        import os
+
+    See https://www.w3schools.com/python/module_os.asp
+
 
 -------------------------------------------------
 ## A word on `numpy`
