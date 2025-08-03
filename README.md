@@ -80,8 +80,15 @@ Since I forgot to bring a notebook, here's all the python stuff I've learned so 
         ---> assert 123 > 0, "..." -> Jumps to the next line, does NOT throw an exception, since 123 is greater than 0.
 
 ### Exception handling:
-    Pretty much like in C/C++, with a couple extra keywords: try, except, else, finally.
+    Pretty much like in C/C++, with a couple extra keywords: raise, try, except, else, finally.
 
+    'raise' throws an exception:
+        raise Exception("Something bad happened")
+        # This throws a generic exception
+    You can also define the type of the exception:
+        raise TypeError("Wrong type")
+
+    
     You can have multiple except statements to catch different exception types:
     try:
         {...}
