@@ -180,11 +180,13 @@ Since I forgot to bring a notebook, here's all the python stuff I've learned so 
         #new_list would be ['a', "hello"]
 
 ### The `os` module
-    Used to interact with OS stuff (read/write/open/close files, filesystem, environment variables, etc.).
+    Used to interact with OS stuff (filesystem, environment variables, etc.).
     Make sure to:
         import os
 
     See https://www.w3schools.com/python/module_os.asp
+
+    Note: opening, reading, writing, closing files is done in standard python with no external modules via the open(), {object}.read(), {object}.write(), and close() functions respectively.
 
 
 -------------------------------------------------
